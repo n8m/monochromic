@@ -1,0 +1,24 @@
+{
+  "name": "gomelagroparts",
+  "version": "0.0.1",
+  "description": "gomelagroparts",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~3.4.8",
+    "sendgrid": "~1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n8m/gomelagroparts.git"
+  },
+  "author": "n8m",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/n8m/gomelagroparts/issues"
+  }
+}

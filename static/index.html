@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>monochromic</title>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+</head>
+<body>
+
+
+
+
+<!-- HOME  ---------------------------------------------------------->
+        
+        <section id="home">
+            <div class="about-section quarter">
+                <span>Меня зовут Олег</span>
+            </div>
+
+            <div class="street-photos-section quarter">
+                <span>Уличные</span>
+            </div>
+
+            <div class="portrait-photos-section quarter">
+                <span>Портретные</span>
+            </div>
+
+            <div class="contacts-section quarter">
+                <span>Контакты</span>
+            </div>
+
+            <div class="curtain"></div>
+        </section>
+
+
+<!-- About  ---------------------------------------------------------->
+
+
+    <section id="about" class="child-page">
+
+       <p>
+           Привет, меня зовут Олег и я люблю фотографировать. Этот сайт - моё виртуальное портфолио. Здесь Вы можете ознакомиться с избранными работами, которыми я готов поделиться с миром. Также в разделе "Контакты" доступна вся необходимая информация.
+            Приятного просмотра.
+       </p>
+
+       <img style="width:700px" src="img/about.jpg">
+
+        <img class="exit" src="img/exit-icon.png">
+
+
+    </section>
+
+
+
+<!-- STREET  ---------------------------------------------------------->
+
+
+
+
+    <section id="street" class="child-page">
+
+
+
+        <div class="main-photo-street main-photo">
+   
+
+            
+            <img src="photos/street/1.jpg">  
+            
+
+
+        </div>
+
+        <div class="thumbs-street thumbs">
+            <ul>
+            </ul>
+        </div>
+
+                    <img class="exit" src="img/exit-icon.png">
+
+
+    </section>
+
+
+
+<!-- PORTRAIT  ---------------------------------------------------------->
+
+
+
+    <section id="portrait" class="child-page">
+
+        <div class="main-photo-portrait main-photo">
+   
+
+            
+            <img src="photos/portrait/1.JPG">  
+            
+
+
+        </div>
+
+        <div class="thumbs-portrait thumbs">
+            <ul>
+            </ul>
+        </div>
+
+                    <img class="exit" src="img/exit-icon.png">
+
+
+    </section>
+
+
+<!-- Contacts  ---------------------------------------------------------->
+
+
+    <section id="contacts" class="child-page">
+       <p>
+        Свяжитесь со мной
+       </p>
+
+       <hr style="width:35%">
+
+        <p>
+            <a target="blank" href="http://vk.com/boing" class="social-network vk"></a>
+            <a target="blank" href="http://500px.com/boingby" class="social-network px"></a>
+            <a target="blank" href="http://twitter.com/byboingby" class="social-network twitter"></a>
+            <a href="skype:boingby?chat" class="social-network skype"></a>
+            <a target="blank" href="http://boingby.tumblr.com" class="social-network tumblr"></a>
+            <a target="blank" href="http://instagram.com/boingby" class="social-network instagram"></a>
+        </p>
+
+        <form style="margin: 0 auto;text-align: center;" class="form" method="POST">
+         <input required type="text" placeholder="Ваше имя" name="name">
+         <input required type="email" placeholder="Ваш E-mail" name="mail">
+         <textarea required rows="6" cols="35" name="msg" placeholder="Message"></textarea>
+         <input type="submit" value="Спросить" class="form_submit">
+
+
+        </form>
+
+
+
+
+        <img class="exit" src="img/exit-icon.png">
+
+
+
+
+    </section>
+
+
+
+
+<!-- Spinner  ---------------------------------------------------------->
+
+<div class='spinner'>
+    <div>
+        <h2>Wait and bleed</h2>
+        <img src='img/spinner.gif'>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- JS  ---------------------------------------------------------->
+
+
+
+<script src="JQ.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+
+
+
+
+
+    $('.quarter').hover(function() {
+      $(this).find('span').animate({top: '-=10px'}, 150);
+    }, function() {
+      $(this).find('span').animate({top: '+=10px'}, 150);
+    });
+
+
+
+    $(function() {  
+      $(".form_submit").click(function() {  
+
+        event.preventDefault();
+        var dataString = $(".form").serialize();
+        $.get('send.php',dataString,function(){
+            alert('Сообщение отправлено');
+
+        });
+
+      });
+        
+    })
+
+
+    $('.about-section').click(function(){
+
+        $('.street-photos-section, .portrait-photos-section, .contacts-section').hide('scale', 300, function(){
+            $('.curtain').css({display:'block', top: 0, left: 0, backgroundColor: '#b1b1b1'});
+            $('.curtain').animate({width: '100%', height: '100%'}, 500, 'easeInOutSine', function(){
+                $('#home').hide();
+                $('.curtain').removeAttr('style');
+                $('#about').show('fade');
+            });
+
+        });
+
+
+
+
+    })
+
+    $('.street-photos-section').click(function(){
+        $('.about-section, .portrait-photos-section, .contacts-section').hide('scale', 300, function(){
+            $('.curtain').css({display:'block', top: 0, right: 0, backgroundColor: '#292929'});
+            $('.curtain').animate({width: '100%', height: '100%'}, 500, 'easeInOutSine', function(){
+                $('#home').hide();
+                $('.curtain').removeAttr('style');
+                $('#street').show('fade');
+            });
+
+        });
+    })
+
+    $('.portrait-photos-section').click(function(){
+
+        $('.street-photos-section, .about-section, .contacts-section').hide('scale', 300, function(){
+            $('.curtain').css({display:'block', bottom: 0, left: 0, backgroundColor: '#292929'});
+            $('.curtain').animate({width: '100%', height: '100%'}, 500, 'easeInOutSine', function(){
+                $('#home').hide();
+                $('.curtain').removeAttr('style');
+                $('#portrait').show('fade');
+            });
+
+        });
+    })
+
+    $('.contacts-section').click(function(){
+
+        $('.street-photos-section, .portrait-photos-section, .about-section').hide('scale', 300, function(){
+            $('.curtain').css({display:'block', bottom: 0, right: 0, backgroundColor: '#b1b1b1'});
+            $('.curtain').animate({width: '100%', height: '100%'}, 500, 'easeInOutSine', function(){
+                $('#home').hide();
+                $('.curtain').removeAttr('style');
+                $('#contacts').show('fade');
+            });
+
+        });
+    })
+
+    $('.exit').click(function(data){
+        var backCurtainDiv;
+        var position = {width: '50%', height: '50%'};
+
+         if(data.target.parentElement.id == "about"){
+            backCurtainDiv = '<div id=\"backCurtain\" class=\"quarter about-section\"></div>';
+            position.top = 0;
+            position.left = 0;
+         }
+
+         if(data.target.parentElement.id == "street"){
+            backCurtainDiv = '<div id=\"backCurtain\" class=\"quarter street-photos-section\"></div>';
+            position.top = 0;
+            position.right = 0;
+         }         
+
+         if(data.target.parentElement.id == "portrait"){
+            backCurtainDiv = '<div id=\"backCurtain\" class=\"quarter portrait-photos-section\"></div>';
+            position.bottom = 0;
+            position.left = 0;
+         }
+
+         if(data.target.parentElement.id == "contacts"){
+            backCurtainDiv = '<div id=\"backCurtain\" class=\"quarter contacts-section\"></div>';
+            position.bottom = 0;
+            position.right = 0;
+         }
+
+         $('body').append(backCurtainDiv);
+         $('#backCurtain').css({width: '100%', height: '100%'});
+         $('.child-page').hide();
+         $('#backCurtain').animate(position, 400, 'easeInOutSine', function(){
+            $('#home').show();
+            $('.quarter').show('fade');
+            $('#backCurtain').remove();
+        });
+
+    })
+
+
+    var streetPhotos = [
+        '1.jpg',
+        '2.jpg',
+        '3.jpg',
+        '4.jpg',
+        '5.jpg',
+        '6.jpg',
+        '7.jpg',
+        '8.jpg',
+        '9.jpg',
+        '10.jpg',
+        '11.jpg',
+        '12.jpg',
+        '13.jpg',
+        '14.jpg',
+        '15.jpg',
+        '16.jpg',
+        '17.jpg',
+        '18.jpg',
+        '19.jpg',
+        '20.jpg',
+        '21.jpg',
+        '22.jpg',
+        '23.jpg',
+        '24.jpg',
+        '25.jpg'
+    ]
+
+    var portraitPhotos = [
+        '1.JPG',
+        '2.JPG',
+        '3.JPG',       
+        '4.JPG',
+        '5.JPG',
+        '6.JPG',       
+        '7.JPG',
+        '8.JPG',
+        '9.JPG',        
+        '10.JPG',
+        '11.JPG',
+        '12.JPG',        
+        '13.JPG',
+        '14.JPG',
+        '15.JPG',        
+        '16.JPG',
+        '17.JPG',
+        '18.JPG',        
+    ]
+
+    for(var i=0;i<streetPhotos.length;i++){
+        var thumb = "<li><img src='photos/street-preview/" + streetPhotos[i] + "'></li>";
+        $('.thumbs-street ul').append(thumb);
+    }
+
+    for(var i=0;i<portraitPhotos.length;i++){
+        var thumb = "<li><img src='photos/portrait-preview/" + portraitPhotos[i] + "'></li>";
+        $('.thumbs-portrait ul').append(thumb);
+    }
+
+    $('.thumbs-street img').click(function(){
+        var nextPath = $(this).attr('src');
+        var imgName = nextPath.split('/')[2]; // 2 - часть урла, где хранится имя
+        changePhotoStreet('photos/street/' + imgName);
+
+    })
+
+    $('.thumbs-portrait img').click(function(){
+        var nextPath = $(this).attr('src');
+        var imgName = nextPath.split('/')[2]; // 2 - часть урла, где хранится 
+        changePhotoPortrait('photos/portrait/' + imgName);
+
+    })
+
+    $('.main-photo-street img').click(function(){
+        var curPath = $(this).attr('src').split('/')[2];
+        try{
+            var nextImgName = $('.thumbs-street img[src=\'photos/street-preview/' + curPath + '\']').parent().next('li').find('img').attr('src').split('/')[2];
+        }
+        catch(e){
+            nextImgName = $('.thumbs-street img:first').attr('src').split('/')[2];
+        }
+        var nextPath = 'photos/street/' + nextImgName;
+        changePhotoStreet(nextPath);
+    })
+
+     $('.main-photo-portrait img').click(function(){
+        var curPath = $(this).attr('src').split('/')[2];
+        try{
+            var nextImgName = $('.thumbs-portrait img[src=\'photos/portrait-preview/' + curPath + '\']').parent().next('li').find('img').attr('src').split('/')[2];
+        }
+        catch(e){
+            nextImgName = $('.thumbs-portrait img:first').attr('src').split('/')[2];
+        }
+        var nextPath = 'photos/portrait/' + nextImgName;
+        changePhotoPortrait(nextPath);
+    })
+
+    function changePhotoStreet(path){
+        $('.main-photo-street img').fadeOut('clip', function(){
+            $(this).attr('src', path).fadeIn('clip');
+        })
+    }
+
+    function changePhotoPortrait(path){
+        $('.main-photo-portrait img').fadeOut('clip', function(){
+            $(this).attr('src', path).fadeIn('clip');
+        })
+    }
+
+
+    function preload(sources)
+    {
+      jQuery.each(sources, function(i,source) { jQuery.get(source); });
+    }
+
+
+    var streetPhotosFullPath = [];
+
+    for(var i=0;i<streetPhotos.length;i++){
+        streetPhotosFullPath[i] = "photos/street/" + streetPhotos[i];
+    }
+
+    preload(streetPhotosFullPath);
+
+    var portraitPhotosFullPath = [];
+
+    for(var i=0;i<portraitPhotos.length;i++){
+        portraitPhotosFullPath[i] = "photos/portrait/" + portraitPhotos[i];
+    }
+
+    preload(portraitPhotosFullPath);
+
+    $(function(){
+        $(window).load(function () {
+            $('.spinner').hide('slide');
+        });
+    })
+
+
+</script>
+</body>
+</html>
