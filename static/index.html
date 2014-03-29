@@ -186,13 +186,12 @@
     });
 
 
-
     $(function() {  
       $(".form_submit").click(function() {  
 
         event.preventDefault();
         var dataString = $(".form").serialize();
-        $.get('send.php',dataString,function(){
+        $.get('/mail',dataString,function(){
             alert('Сообщение отправлено');
 
         });
