@@ -191,7 +191,7 @@
 
         event.preventDefault();
         var dataString = $(".form").serialize();
-        $.get('/mail',dataString,function(){
+        $.post('/mail',dataString,function(){
             alert('Сообщение отправлено');
 
         });
