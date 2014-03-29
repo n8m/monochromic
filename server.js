@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var sendgrid  = require('sendgrid')(
-  ‘bonya’,
+  'bonya',
   'randompassword'
 );
 
