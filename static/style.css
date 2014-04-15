@@ -314,7 +314,7 @@ form input[type='text']{
     color: white;
 }
 
-.sm-spinner{
+.small-spinner{
     border: 0;
     position: absolute;
     top: 50%;
