@@ -315,7 +315,7 @@ form input[type='text']{
 }
 
 .small-spinner{
-    border: 0;
+    border: none !important;
     position: absolute;
     top: 50%;
     left: 49%;
