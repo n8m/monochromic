@@ -407,9 +407,16 @@
         })
     }
 
-    function preload(sources)
-    {
-      jQuery.each(sources, function(i,source) { jQuery.get(source); });
+    // function preload(sources)
+    // {
+    //   jQuery.each(sources, function(i,source) { jQuery.get(source); });
+    // }
+
+
+    function preload(arrayOfImages) {
+        $(arrayOfImages).each(function(){
+            $('<img/>')[0].src = this;
+        });
     }
 
 
