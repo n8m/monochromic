@@ -403,7 +403,11 @@
     function changePhotoPortrait(path){
         $('.main-photo-portrait').animate({ opacity: 0 }, function(){
             $(this).find('img').attr('src', path);
-            $(this).animate({ opacity: 1 });
+
+            $(this).find('img').one('load', function() {
+                console.log('loaded');
+                $('.main-photo-portrait').animate({ opacity: 1 });
+            })
         })
     }
 
