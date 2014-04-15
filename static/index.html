@@ -395,13 +395,15 @@
 
     function changePhotoStreet(path){
         $('.main-photo-street img').animate({ opacity: 0 }, function(){
-            $(this).attr('src', path).animate({ opacity: 1 });
+            $(this).attr('src', path);
+            $(this).animate({ opacity: 1 });
         })
     }
 
     function changePhotoPortrait(path){
         $('.main-photo-portrait img').animate({ opacity: 0 }, function(){
-            $(this).attr('src', path).animate({ opacity: 1 });
+            $(this).attr('src', path);
+            $(this).animate({ opacity: 1 });
         })
     }
 
