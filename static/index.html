@@ -405,22 +405,14 @@
             $(this).find('img').attr('src', path);
 
             $(this).find('img').one('load', function() {
-                console.log('loaded');
                 $('.main-photo-portrait').animate({ opacity: 1 });
             })
         })
     }
 
-    // function preload(sources)
-    // {
-    //   jQuery.each(sources, function(i,source) { jQuery.get(source); });
-    // }
-
-
-    function preload(arrayOfImages) {
-        $(arrayOfImages).each(function(){
-            $('<img/>')[0].src = this;
-        });
+    function preload(sources)
+    {
+      jQuery.each(sources, function(i,source) { jQuery.get(source); });
     }
 
 
@@ -430,7 +422,7 @@
         streetPhotosFullPath[i] = "photos/street/" + streetPhotos[i];
     }
 
-    // preload(streetPhotosFullPath);
+    preload(streetPhotosFullPath);
 
     var portraitPhotosFullPath = [];
 
@@ -438,7 +430,7 @@
         portraitPhotosFullPath[i] = "photos/portrait/" + portraitPhotos[i];
     }
 
-    // preload(portraitPhotosFullPath);
+    preload(portraitPhotosFullPath);
 
     $(function(){
         $(window).load(function () {
