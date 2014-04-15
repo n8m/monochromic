@@ -394,17 +394,16 @@
     })
 
     function changePhotoStreet(path){
-        $('.main-photo-street img').fadeOut('clip', function(){
-            $(this).attr('src', path).fadeIn('clip');
+        $('.main-photo-street img').animate({ opacity: 0 }, function(){
+            $(this).attr('src', path).animate({ opacity: 1 });
         })
     }
 
     function changePhotoPortrait(path){
-        $('.main-photo-portrait img').fadeOut('clip', function(){
-            $(this).attr('src', path).fadeIn('clip');
+        $('.main-photo-portrait img').animate({ opacity: 0 }, function(){
+            $(this).attr('src', path).animate({ opacity: 1 });
         })
     }
-
 
     function preload(sources)
     {
