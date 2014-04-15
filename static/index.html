@@ -401,7 +401,7 @@
             
 
             $(this).one('load', function() {
-                $('.spinner').remove();
+                $('.sm-spinner').remove();
                 $('.main-photo-street img').animate({ opacity: 1 });
             })
         })
@@ -413,9 +413,8 @@
 
             $('.main-photo-portrait').append("<img class=small-spinner src=img/sm-spinner.gif>");
 
-
             $(this).one('load', function() {
-                $('.spinner').remove();
+                $('.sm-spinner').remove();
                 $('.main-photo-portrait img').animate({ opacity: 1 });
             })
         })

@@ -314,6 +314,13 @@ form input[type='text']{
     color: white;
 }
 
+.sm-spinner{
+    border: 0;
+    position: absolute;
+    top: 50%;
+    left: 49%;
+}
+
 .spinner div{
     display: table-cell;
     vertical-align: middle;
