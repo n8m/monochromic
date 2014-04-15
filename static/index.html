@@ -394,18 +394,29 @@
     })
 
     function changePhotoStreet(path){
-        $('.main-photo-street').animate({ opacity: 0 }, function(){
-            $(this).find('img').attr('src', path);
-            $(this).animate({ opacity: 1 });
+        $('.main-photo-street img').animate({ opacity: 0 }, function(){
+            $(this).attr('src', path);
+
+            $('.main-photo-street').append("<img class=spinner src=img/spinner.gif>");
+            
+
+            $(this).one('load', function() {
+                $('.spinner').remove();
+                $('.main-photo-street img').animate({ opacity: 1 });
+            })
         })
     }
 
     function changePhotoPortrait(path){
-        $('.main-photo-portrait').animate({ opacity: 0 }, function(){
-            $(this).find('img').attr('src', path);
+        $('.main-photo-portrait img').animate({ opacity: 0 }, function(){
+            $(this).attr('src', path);
 
-            $(this).find('img').one('load', function() {
-                $('.main-photo-portrait').animate({ opacity: 1 });
+            $('.main-photo-portrait').append("<img class=spinner src=img/spinner.gif>");
+
+
+            $(this).one('load', function() {
+                $('.spinner').remove();
+                $('.main-photo-portrait img').animate({ opacity: 1 });
             })
         })
     }
@@ -416,21 +427,21 @@
     }
 
 
-    var streetPhotosFullPath = [];
+    // var streetPhotosFullPath = [];
 
-    for(var i=0;i<streetPhotos.length;i++){
-        streetPhotosFullPath[i] = "photos/street/" + streetPhotos[i];
-    }
+    // for(var i=0;i<streetPhotos.length;i++){
+    //     streetPhotosFullPath[i] = "photos/street/" + streetPhotos[i];
+    // }
 
-    preload(streetPhotosFullPath);
+    // preload(streetPhotosFullPath);
 
-    var portraitPhotosFullPath = [];
+    // var portraitPhotosFullPath = [];
 
-    for(var i=0;i<portraitPhotos.length;i++){
-        portraitPhotosFullPath[i] = "photos/portrait/" + portraitPhotos[i];
-    }
+    // for(var i=0;i<portraitPhotos.length;i++){
+    //     portraitPhotosFullPath[i] = "photos/portrait/" + portraitPhotos[i];
+    // }
 
-    preload(portraitPhotosFullPath);
+    // preload(portraitPhotosFullPath);
 
     $(function(){
         $(window).load(function () {
