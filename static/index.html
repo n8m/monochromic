@@ -397,7 +397,7 @@
         $('.main-photo-street img').animate({ opacity: 0 }, function(){
             $(this).attr('src', path);
 
-            $('.main-photo-street').append("<img class=spinner src=img/spinner.gif>");
+            $('.main-photo-street').append("<img class=small-spinner src=img/sm-spinner.gif>");
             
 
             $(this).one('load', function() {
@@ -411,7 +411,7 @@
         $('.main-photo-portrait img').animate({ opacity: 0 }, function(){
             $(this).attr('src', path);
 
-            $('.main-photo-portrait').append("<img class=spinner src=img/spinner.gif>");
+            $('.main-photo-portrait').append("<img class=small-spinner src=img/sm-spinner.gif>");
 
 
             $(this).one('load', function() {
